@@ -1,7 +1,4 @@
-on: 
-  pull_request:
-    branches:
-      - master
+on: [push]
 
 jobs:
   preview:
@@ -25,20 +22,3 @@ jobs:
       with:
         namespace: pr-${{ github.event.number }}-rberrelleza
         manifest: manifests
-
-    - name: Push API Changes
-      uses: okteto/push@master
-      with:
-        working-directory: api
-
-    - name: Push Frontend Changes
-      uses: okteto/push@master
-      with:
-        working-directory: frontend
-
-    - name: comment PR
-      uses: unsplash/comment-on-pr@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        msg: "Preview environment available at https://movies-pr-${{ github.event.number }}-rberrelleza.cloud.okteto.net"
