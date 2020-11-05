@@ -12,13 +12,13 @@ jobs:
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
 
-    - name: Create namespace
-      uses: okteto/create-namespace@master
+    - name: Activate Namespace
+      uses: okteto/namespace@master
       with:
-        namespace: pr-${{ github.event.number }}-farrid19
+        namespace: farrid19
 
     - name: Deploy Application
       uses: okteto/apply@master
       with:
-        namespace: pr-${{ github.event.number }}-farrid19
+        namespace: farrid19
         manifest: manifests
