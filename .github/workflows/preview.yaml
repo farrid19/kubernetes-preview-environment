@@ -15,10 +15,10 @@ jobs:
     - name: Create namespace
       uses: okteto/create-namespace@master
       with:
-        namespace: pr-${{ github.event.number }}-rberrelleza
+        namespace: farrid19 
 
     - name: Deploy Application
       uses: okteto/apply@master
       with:
-        namespace: pr-${{ github.event.number }}-rberrelleza
+        namespace: farrid19
         manifest: manifests
